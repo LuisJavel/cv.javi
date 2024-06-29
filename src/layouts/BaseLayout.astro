@@ -1,0 +1,36 @@
+---
+import Navbar from "@/components/Navbar.astro"
+import { ViewTransitions } from "astro:transitions"
+const {title, description} = Astro.props 
+---
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;1,700;0,900&display=swap');
+	:root{
+		--theme-color-light: #af550f;
+        --theme-background-color: #9d48d5;
+        --theme-color-dark: #d7d7ed;
+		--theme-color-white: #fff
+	}
+
+	body{
+		margin: 0;
+	}
+</style>
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="descrption" content={description} />
+		<ViewTransitions />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Navbar />
+		
+		<slot />
+	</body>
+</html>
+

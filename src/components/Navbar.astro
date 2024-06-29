@@ -1,0 +1,49 @@
+---
+const ROUTES = [
+    {text: "Inicio", url:"/"},
+    {text: "Servicios", url:"/servisio/"},
+    {text: "Portafolio", url:"/portafolio/"},
+    {text: "Pregunta", url:"/faq/"},
+]
+---
+<style>
+    
+    nav{
+        background: var(--theme-color-light);
+        font-family: Kanit, sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+
+        & .wrapper{
+            display: flex;
+        }
+    
+        & a{
+        display: block;
+        color: var(--theme-color-dark);
+        padding: 2rem 3rem;
+        text-decoration: none;
+        border-bottom: 10px solid color-mix(in srgb, var(--bgcolor), #fff 10%);
+        transition: 
+            banckground 0.2, color 0.25;
+        
+        &:nth-child(1) {--bgcolor: #7b2fb0;}
+        &:nth-child(2) {--bgcolor: #29b43e;}
+        &:nth-child(3) {--bgcolor: #570b8e;}
+        &:nth-child(4) {--bgcolor: #981d35;}
+
+
+        &:hover {
+            background: var(--bgcolor);
+            color: var(--theme-color-dark);
+            }
+        }
+    }
+</style>
+<nav>
+    <div class="wrapper">
+        {ROUTES.map(route => <a href={route.url}>{route.text}</a>)}
+    </div>
+</nav>
